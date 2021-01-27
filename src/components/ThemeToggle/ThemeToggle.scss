@@ -1,0 +1,9 @@
+.theme-picker {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  width: fit-content;
+  column-gap: 10px;
+  user-select: none;
+  color: var(--sidebar-text);
+}

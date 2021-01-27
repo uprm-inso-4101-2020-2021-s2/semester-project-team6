@@ -5,4 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--main);
+  color: var(--text);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+//Used to store global color scheme.
+
+html {
+  --main: #f5fcfd;
+  --secondary: #ffffff;
+  --hightlight: #10b8a1;
+  --sidebar-text: #1a202e;
+
+  &[data-theme="dark"] {
+    --main: #1f1d2b;
+    --secondary: #252836;
+    --hightlight: #10b8a1;
+    --sidebar-text: #808191;
+  }
+
+  &.transition,
+  &.transition *,
+  &.transition *:after,
+  &.transition:before {
+    transition: all 500ms !important;
+    transition-delay: 0 !important;
+  }
 }
