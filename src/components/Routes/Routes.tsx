@@ -6,8 +6,8 @@ import { route, Route } from 'types/types';
 
 export const routes: Route[] = [
   { route: "/", name: route.home },
-  { route: "/settings", name: route.settings },
   { route: "/payments", name: route.payments },
+  { route: "/settings", name: route.settings },
 ];
 
 interface Props {
