@@ -23,10 +23,12 @@ const Sidebar: React.FC<Props> = () => {
             className={selected === name ? "active" : undefined}
             onClick={() => setSelected(name)}
           >
-            <div>
-              <RouteIcon name={name} />
-            </div>
-            <Link to={route}>{name}</Link>
+            <Link to={route}>
+              <div>
+                <RouteIcon name={name} />
+              </div>
+              {name}
+            </Link>
           </li>
         ))}
       </ul>
