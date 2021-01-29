@@ -1,0 +1,156 @@
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 275px 1fr;
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes remove-in-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes remove-in-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+@keyframes remove-in-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+@keyframes remove-in-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skeleton-loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@mixin skeleton-loading($color: rgb(255, 255, 255), $opacity: 0.3) {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    display: block;
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 400%;
+    height: 400%;
+    transform: translateX(-100%);
+  }
+
+  &:hover {
+    &::after {
+      background: linear-gradient(-45deg, transparent, $color, transparent);
+      animation: skeleton-loading 2s infinite;
+      opacity: $opacity;
+    }
+  }
+}

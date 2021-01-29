@@ -1,0 +1,12 @@
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(10px);
+  border-radius: inherit;
+  user-select: none;
+  animation: fade-in 0.7s forwards;
+  row-gap: 10px;
+}
