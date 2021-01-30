@@ -5,11 +5,26 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--main);
+  background: var(--main);
   color: var(--text);
-  background-position: center;
-  background-size: cover;
+
+  background-size: 400%;
   background-repeat: no-repeat;
+
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    pointer-events: none;
+    display: block;
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.2;
+  }
 }
 
 //Used to store global color scheme.
@@ -17,20 +32,24 @@ body {
 html {
   --main: #f5fcfd;
   --secondary: #ffffff;
+  --hover: #e0d8d8;
   --text: #1a202e;
   --hightlight: #10b8a1;
   --hightlight-light: rgba(16, 184, 161, 0.5);
   --sidebar-text: #1a202e;
   --sidebar-border: rgba(161, 166, 175, 0.3);
+  --shadow: rgba(42, 41, 41, 0.507);
 
   &[data-theme="dark"] {
-    --main: #1f1d2b;
+    --main: #141925; //#1f1d2b was the original
     --secondary: #252836;
+    --hover: #363341;
     --text: white;
     --hightlight: #10b8a1;
     --hightlight-light: rgba(16, 184, 161, 0.5);
     --sidebar-text: #808191;
     --sidebar-border: rgba(128, 129, 145, 0.3);
+    --shadow: rgba(26, 25, 25, 0.507);
   }
 
   &.transition,

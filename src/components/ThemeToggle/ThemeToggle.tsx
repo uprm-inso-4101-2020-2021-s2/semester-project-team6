@@ -2,7 +2,7 @@ import './ThemeToggle.scss';
 
 import { themeAtom } from 'atoms';
 import Toggle from 'components/Toggle';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRecoilState } from 'recoil';
 
 interface Props {
@@ -12,11 +12,28 @@ interface Props {
 
 const ThemeToggle: React.FC<Props> = ({ width, height }) => {
   const [checked, setChecked] = useRecoilState<boolean>(themeAtom);
+  const isInitialMount = useRef(true);
 
-  const theme = checked ? "dark" : "light";
-  localStorage.setItem("theme", theme);
-  trans();
-  document.documentElement.setAttribute("data-theme", theme);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      const theme = checked ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      document.documentElement.classList.add("transition");
+
+      const timer = setTimeout(() => {
+        document.documentElement.classList.remove("transition");
+      }, 500);
+
+      document.documentElement.setAttribute("data-theme", theme);
+
+      return () => {
+        document.documentElement.classList.remove("transition");
+        clearTimeout(timer);
+      };
+    }
+  }, [checked]);
 
   return (
     <div className="theme-picker">
@@ -27,10 +44,3 @@ const ThemeToggle: React.FC<Props> = ({ width, height }) => {
 };
 
 export default ThemeToggle;
-
-function trans() {
-  document.documentElement.classList.add("transition");
-  window.setTimeout(() => {
-    document.documentElement.classList.remove("transition");
-  }, 700);
-}

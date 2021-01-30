@@ -4,6 +4,7 @@ export enum route {
   home = "Home",
   settings = "Settings",
   payments = "Payments",
+  account = "Account",
 }
 
 //-----[interface]-----
