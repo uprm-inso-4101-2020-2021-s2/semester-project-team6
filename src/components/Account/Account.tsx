@@ -1,7 +1,7 @@
 import './Account.scss';
 
 import { ReactComponent as ArrowDown } from 'assets/svg/arrowDown.svg';
-import { selectedRoute } from 'atoms';
+import { selectedRouteAtom } from 'atoms';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Account: React.FC<Props> = ({ avatar, name }) => {
-  const setSelectedRoute = useSetRecoilState(selectedRoute);
+  const setSelectedRoute = useSetRecoilState(selectedRouteAtom);
 
   return (
     <li className="account">

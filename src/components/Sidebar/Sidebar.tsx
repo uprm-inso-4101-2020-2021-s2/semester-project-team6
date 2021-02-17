@@ -1,6 +1,7 @@
 import './Sidebar.scss';
 
-import { selectedRoute } from 'atoms';
+import { selectedRouteAtom } from 'atoms';
+import Logout from 'components/Logout';
 import RouteIcon, { routes } from 'components/Routes';
 import ThemeToggle from 'components/ThemeToggle';
 import React from 'react';
@@ -11,7 +12,7 @@ import { route } from 'types';
 interface Props {}
 
 const Sidebar: React.FC<Props> = () => {
-  const [selected, setSelected] = useRecoilState<route>(selectedRoute);
+  const [selected, setSelected] = useRecoilState<route>(selectedRouteAtom);
 
   return (
     <nav className="sidebar">
@@ -33,7 +34,10 @@ const Sidebar: React.FC<Props> = () => {
         ))}
       </ul>
 
-      <ThemeToggle />
+      <div className="sidebar-options">
+        <ThemeToggle />
+        <Logout />
+      </div>
     </nav>
   );
 };

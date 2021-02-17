@@ -72,6 +72,12 @@
       }
     }
   }
+
+  .sidebar-options {
+    display: grid;
+    justify-items: center;
+    row-gap: 10px;
+  }
 }
 
 @media screen and (max-width: 1100px) {

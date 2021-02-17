@@ -1,0 +1,57 @@
+.login {
+  user-select: none;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  .login-fields {
+    display: grid;
+    width: 80%;
+    max-width: 600px;
+    row-gap: 20px;
+
+    label {
+      span {
+        user-select: none;
+        font-size: small;
+        color: var(--sidebar-text);
+      }
+
+      input {
+        outline: none;
+        border-radius: 10px;
+        width: calc(100% - 60px);
+        border: none;
+        color: var(--text);
+        background-color: var(--hover);
+        font-size: 20px;
+        height: 32px;
+        padding: 5px 30px;
+        transition: 0.2s;
+        box-shadow: 0px 1px 2px var(--shadow);
+      }
+    }
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .login-button {
+    outline: none;
+    width: fit-content;
+    padding: 10px 30px;
+    border: none;
+    background-color: var(--hightlight);
+    color: rgb(243, 237, 237);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 2px 2px var(--shadow);
+    &:hover {
+      background-color: var(--hightlight-hover);
+    }
+  }
+}

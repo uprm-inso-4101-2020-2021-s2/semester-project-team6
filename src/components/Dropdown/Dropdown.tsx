@@ -2,7 +2,8 @@ import './Dropdown.scss';
 
 import { ReactComponent as Back } from 'assets/svg/arrowLeft.svg';
 import { ReactComponent as Navigation } from 'assets/svg/navigation.svg';
-import { selectedRoute } from 'atoms';
+import { selectedRouteAtom } from 'atoms';
+import Logout from 'components/Logout/Logout';
 import RouteIcon, { routes } from 'components/Routes';
 import ThemeToggle from 'components/ThemeToggle/ThemeToggle';
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
@@ -26,7 +27,7 @@ const Dropdown = forwardRef((props, ref: any) => {
   const [activeMenu, setActiveMenu] = useState<menu>(menu.main);
   const [menuHeight, setMenuHeight] = useState<any>(null);
   const dropdownRef = useRef<any>(null);
-  const [selected, setSelected] = useRecoilState<route>(selectedRoute);
+  const [selected, setSelected] = useRecoilState<route>(selectedRouteAtom);
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -76,6 +77,7 @@ const Dropdown = forwardRef((props, ref: any) => {
             Navigation
           </DropdownItem>
           <ThemeToggle />
+          <Logout />
         </div>
       </CSSTransition>
 

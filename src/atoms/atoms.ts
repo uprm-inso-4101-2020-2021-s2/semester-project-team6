@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { route } from 'types';
+import { Authentication, route } from 'types';
 
 /* Recoil 
 This is the state management system.
@@ -16,7 +16,19 @@ export const themeAtom = atom({
   default: localStorage.getItem("theme") === "light" ? false : true,
 });
 
-export const selectedRoute = atom<route>({
-  key: "selectedRoute",
+//-----[Current Route Atom]-----
+
+export const selectedRouteAtom = atom<route>({
+  key: "selectedRouteAtom",
   default: route.home,
+});
+
+export const authenticationAtom = atom<Authentication>({
+  key: "authenticationAtom",
+  default: {
+    isAuthenticated: false,
+    email: "",
+    password: "",
+    token: null,
+  },
 });

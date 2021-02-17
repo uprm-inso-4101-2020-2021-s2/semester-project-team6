@@ -20,3 +20,10 @@ export interface Route {
   route: string;
   name: route;
 }
+
+export interface Authentication {
+  isAuthenticated: boolean;
+  email: string;
+  password: string;
+  token?: string | null;
+}
