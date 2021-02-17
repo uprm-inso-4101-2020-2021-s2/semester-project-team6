@@ -7,7 +7,11 @@ import Home from 'containers/Home';
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const Settings = lazy(() => import("components/Settings"));
+//-----[Lazy load imports]-----
+const Settings = lazy(() => import("containers/Settings"));
+const Enrollment = lazy(() => import("containers/Enrollment"));
+const Payment = lazy(() => import("containers/Payment"));
+
 const App: React.FC = () => {
   return (
     <div className="app">
@@ -16,8 +20,10 @@ const App: React.FC = () => {
         <Sidebar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={Loader}>
             <Route path="/settings" exact component={Settings} />
+            <Route path="/enrollment" exact component={Enrollment} />
+            <Route path="/payment" exact component={Payment} />
           </Suspense>
         </Switch>
       </div>

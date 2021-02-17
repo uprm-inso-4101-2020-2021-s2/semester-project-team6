@@ -3,8 +3,9 @@
 export enum route {
   home = "Home",
   settings = "Settings",
-  payments = "Payments",
+  payment = "Payment",
   account = "Account",
+  enrollment = "Enrollment",
 }
 
 //-----[interface]-----

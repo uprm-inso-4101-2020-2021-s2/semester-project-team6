@@ -1,3 +1,4 @@
+import { ReactComponent as Enrollment } from 'assets/svg/enrollment.svg';
 import { ReactComponent as Home } from 'assets/svg/home.svg';
 import { ReactComponent as Payments } from 'assets/svg/price.svg';
 import { ReactComponent as Settings } from 'assets/svg/settings.svg';
@@ -6,7 +7,8 @@ import { route, Route } from 'types/types';
 
 export const routes: Route[] = [
   { route: "/", name: route.home },
-  { route: "/payments", name: route.payments },
+  { route: "/enrollment", name: route.enrollment },
+  { route: "/payment", name: route.payment },
   { route: "/settings", name: route.settings },
 ];
 
@@ -22,8 +24,11 @@ const RouteIcon: React.FC<Props> = ({ name }) => {
     case route.settings:
       return <Settings />;
 
-    case route.payments:
+    case route.payment:
       return <Payments />;
+
+    case route.enrollment:
+      return <Enrollment />;
 
     default:
       return null;
