@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 import { cacheConfig } from './cache';
 
@@ -11,9 +11,15 @@ import { cacheConfig } from './cache';
     - https://www.apollographql.com/docs/react/
  */
 
+const link = createHttpLink({
+  uri: "http://localhost:4000/graphql",
+  credentials: "include",
+});
+
 export const client = new ApolloClient({
   name: "GraphQL Api",
   version: "v1.0",
-  uri: "GraphQL url endpoint",
+  uri: "http://localhost:4000/graphql/",
   cache: new InMemoryCache(cacheConfig),
+  link,
 });

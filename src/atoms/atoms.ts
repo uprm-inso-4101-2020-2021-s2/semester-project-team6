@@ -1,4 +1,6 @@
-import { atom } from 'recoil';
+import { client } from 'apollo/apollo';
+import { IS_SIGNED_IN } from 'apollo/queries';
+import { atom, selector } from 'recoil';
 import { Authentication, route } from 'types';
 
 /* Recoil 
@@ -23,12 +25,24 @@ export const selectedRouteAtom = atom<route>({
   default: route.home,
 });
 
+const isAuthenticated = selector<Authentication>({
+  key: "isAuthenticated",
+  get: async () => {
+    const { data } = await client.query({
+      query: IS_SIGNED_IN,
+      fetchPolicy: "no-cache",
+    });
+
+    return {
+      isAuthenticated: data.isSignedIn,
+      email: "",
+      password: "",
+      token: null,
+    };
+  },
+});
+
 export const authenticationAtom = atom<Authentication>({
   key: "authenticationAtom",
-  default: {
-    isAuthenticated: false,
-    email: "",
-    password: "",
-    token: null,
-  },
+  default: isAuthenticated,
 });

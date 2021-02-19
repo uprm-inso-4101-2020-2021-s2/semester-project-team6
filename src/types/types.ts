@@ -27,3 +27,16 @@ export interface Authentication {
   password: string;
   token?: string | null;
 }
+
+export interface Event {
+  name: string;
+  date: Date;
+  time?: Time;
+}
+
+export interface Time {
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
+  period?: string; // AM or PM
+}

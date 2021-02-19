@@ -1,7 +1,8 @@
 import './index.scss';
 
 import { client } from 'apollo';
-import React from 'react';
+import Loader from 'components/Loader';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
@@ -19,7 +20,9 @@ render(
   <ApolloProvider client={client}>
     <RecoilRoot>
       <Router>
-        <App />
+        <Suspense fallback={<Loader />}>
+          <App />
+        </Suspense>
       </Router>
     </RecoilRoot>
   </ApolloProvider>,

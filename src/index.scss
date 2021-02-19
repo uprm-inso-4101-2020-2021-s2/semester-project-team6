@@ -31,12 +31,12 @@ body {
 
 html {
   --main: #f5fcfd;
-  --secondary: #ffffff;
+  --secondary: #ffff;
   --hover: #e0d8d8;
   --text: #1a202e;
-  --hightlight: #10b8a1;
-  --hightlight-hover: #11dabf;
-  --hightlight-light: rgba(16, 184, 161, 0.5);
+  --highlight: #10b8a1;
+  --highlight-hover: #11dabf;
+  --highlight-light: rgba(16, 184, 161, 0.5);
   --sidebar-text: #1a202e;
   --sidebar-border: rgba(161, 166, 175, 0.3);
   --shadow: rgba(42, 41, 41, 0.507);
@@ -48,9 +48,9 @@ html {
     --secondary: #252836;
     --hover: #363341;
     --text: white;
-    --hightlight: #10b8a1;
-    --hightlight-hover: #11dabf;
-    --hightlight-light: rgba(16, 184, 161, 0.5);
+    --highlight: #10b8a1;
+    --highlight-hover: #11dabf;
+    --highlight-light: rgba(16, 184, 161, 0.5);
     --sidebar-text: #808191;
     --sidebar-border: rgba(128, 129, 145, 0.3);
     --shadow: rgba(26, 25, 25, 0.507);

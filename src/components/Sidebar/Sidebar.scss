@@ -17,7 +17,7 @@
 
   ul {
     max-height: 60vh;
-    min-height: 0;
+    min-height: 68px;
     margin: 0px;
     padding: 0px;
     list-style-type: none;
@@ -63,9 +63,9 @@
     }
 
     .active {
-      color: var(--hightlight);
+      color: var(--highlight);
       div {
-        background-color: var(--hightlight);
+        background-color: var(--highlight);
         svg {
           fill: white;
         }

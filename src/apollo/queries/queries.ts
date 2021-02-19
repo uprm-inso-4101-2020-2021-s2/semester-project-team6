@@ -5,3 +5,20 @@
 
 import { gql } from '@apollo/client';
 
+export const LOGIN = gql`
+  mutation login($email: ID!, $password: String!) {
+    login(email: $email, password: $password)
+  }
+`;
+
+export const LOGOUT = gql`
+  mutation logout {
+    logout
+  }
+`;
+
+export const IS_SIGNED_IN = gql`
+  query isSignedIn {
+    isSignedIn
+  }
+`;

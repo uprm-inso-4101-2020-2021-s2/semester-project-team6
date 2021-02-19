@@ -1,4 +1,5 @@
 .dropdown {
+  z-index: 1000;
   position: absolute;
   top: 58px;
   width: 250px;
@@ -106,9 +107,9 @@
     }
 
     &.active {
-      color: var(--hightlight);
+      color: var(--highlight);
       div {
-        background-color: var(--hightlight);
+        background-color: var(--highlight);
         svg {
           fill: white;
         }

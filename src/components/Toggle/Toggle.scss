@@ -12,7 +12,7 @@
   }
 
   input:checked + .slider {
-    background-color: var(--hightlight);
+    background-color: var(--highlight);
   }
 
   input:checked + .slider:before {
