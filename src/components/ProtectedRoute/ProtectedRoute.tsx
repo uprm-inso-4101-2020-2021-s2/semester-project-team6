@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 const ProtectedRoute: React.FC<any> = ({ component: Component, ...rest }) => {
-  const { isAuthenticated } = useRecoilValue(authenticationAtom);
+  const isAuthenticated = useRecoilValue(authenticationAtom);
   return (
     <Route
       {...rest}

@@ -12,7 +12,7 @@ import { Switch } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 const App: React.FC = () => {
-  const { isAuthenticated } = useRecoilValue(authenticationAtom);
+  const isAuthenticated = useRecoilValue(authenticationAtom);
   return !isAuthenticated ? (
     <Login />
   ) : (

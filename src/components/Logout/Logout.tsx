@@ -4,21 +4,21 @@ import { LOGOUT } from 'apollo/queries';
 import { ReactComponent as Leave } from 'assets/svg/logout.svg';
 import { authenticationAtom } from 'atoms';
 import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { useMutation } from '@apollo/client';
 
 interface Props {}
 
 const Logout: React.FC<Props> = () => {
-  const [auth, setAuth] = useRecoilState(authenticationAtom);
+  const setAuth = useSetRecoilState(authenticationAtom);
   const [logout, { data }] = useMutation(LOGOUT);
 
   useEffect(() => {
     if (data) {
-      setAuth({ ...auth, isAuthenticated: false });
+      setAuth(false);
     }
-  }, [auth, data, setAuth]);
+  }, [data, setAuth]);
 
   return (
     <button className="logout" onClick={() => logout()}>

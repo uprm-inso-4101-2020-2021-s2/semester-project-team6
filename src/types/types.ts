@@ -22,7 +22,6 @@ export interface Route {
 }
 
 export interface Authentication {
-  isAuthenticated: boolean;
   email: string;
   password: string;
   token?: string | null;
